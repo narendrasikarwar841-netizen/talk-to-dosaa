@@ -1,88 +1,30 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+let cart = [];
+let total = 0;
+
+function addItem(name, price) {
+  cart.push({ name, price });
+  total += price;
+  updateCart();
 }
 
-body{
-background:#0f0f0f;
-color:white;
+function updateCart() {
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML = "";
+
+  cart.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - ₹${item.price}`;
+    cartItems.appendChild(li);
+  });
+
+  document.getElementById("total").innerText = `Total ₹${total}`;
 }
 
-header{
-background:#111;
-padding:20px;
-text-align:center;
-border-bottom:2px solid gold;
-}
+function checkout() {
+  if (cart.length === 0) {
+    alert("Please add at least one item.");
+    return;
+  }
 
-header h1{
-color:gold;
-font-size:32px;
-}
-
-header p{
-color:#ddd;
-margin-top:5px;
-}
-
-.menu{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-padding:20px;
-}
-
-.card{
-background:#1b1b1b;
-border:2px solid gold;
-border-radius:15px;
-padding:15px;
-text-align:center;
-}
-
-.card img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:10px;
-}
-
-.card h2{
-margin-top:10px;
-color:gold;
-}
-
-.card h3{
-margin:10px 0;
-}
-
-button{
-background:gold;
-color:black;
-border:none;
-padding:12px;
-width:100%;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.cart{
-padding:20px;
-background:#1b1b1b;
-margin:20px;
-border-radius:15px;
-border:2px solid gold;
-}
-
-#cartItems{
-margin:15px 0;
-}
-
-#total{
-margin-bottom:15px;
-color:gold;
+  alert("Order Placed Successfully!\nThank you for ordering from Talk to Dosaa.");
 }
