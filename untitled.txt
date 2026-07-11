@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to Dosaa</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>🍽️ Talk to Dosaa</h1>
+    <p>Fresh • Hot • Delicious</p>
+</header>
+
+<section class="menu">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=600" alt="Masala Dosa">
+<h2>Masala Dosa</h2>
+<h3>₹60</h3>
+<button onclick="addItem('Masala Dosa',60)">
+Add to Cart
+</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600" alt="Pav Bhaji">
+<h2>Pav Bhaji</h2>
+<h3>₹40</h3>
+<button onclick="addItem('Pav Bhaji',40)">
+Add to Cart
+</button>
+</div>
+
+</section>
+
+<div class="cart">
+
+<h2>Your Cart</h2>
+
+<ul id="cartItems"></ul>
+
+<h3 id="total">Total ₹0</h3>
+
+<button onclick="checkout()">
+ORDER NOW
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>content://com.rhmsoft.edit/external/inex.html/untitled.txt
