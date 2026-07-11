@@ -1,30 +1,21 @@
-let cart = [];
-let total = 0;
+// firebase.js
 
-function addItem(name, price) {
-  cart.push({ name, price });
-  total += price;
-  updateCart();
-}
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-function updateCart() {
-  const cartItems = document.getElementById("cartItems");
-  cartItems.innerHTML = "";
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
-  cart.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} - ₹${item.price}`;
-    cartItems.appendChild(li);
-  });
+const app = initializeApp(firebaseConfig);
 
-  document.getElementById("total").innerText = `Total ₹${total}`;
-}
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
-function checkout() {
-  if (cart.length === 0) {
-    alert("Please add at least one item.");
-    return;
-  }
-
-  alert("Order Placed Successfully!\nThank you for ordering from Talk to Dosaa.");
-}
+export default app;
