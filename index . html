@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dosaa Cafe</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff8f0;
+    text-align:center;
+}
+header{
+    background:#ff6b00;
+    color:white;
+    padding:20px;
+}
+h1{
+    margin:0;
+}
+.menu{
+    padding:20px;
+}
+.item{
+    background:white;
+    margin:15px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+button{
+    background:#ff6b00;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    font-size:16px;
+}
+footer{
+    margin-top:30px;
+    background:#222;
+    color:white;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍽️ Dosaa Cafe</h1>
+<p>Fresh & Tasty Food</p>
+</header>
+
+<div class="menu">
+
+<div class="item">
+<h2>Masala Dosa</h2>
+<h3>₹60</h3>
+<button>Order Now</button>
+</div>
+
+<div class="item">
+<h2>Pav Bhaji</h2>
+<h3>₹40</h3>
+<button>Order Now</button>
+</div>
+
+</div>
+
+<footer>
+© 2026 Dosaa Cafe
+</footer>
+
+</body>
+</html>
