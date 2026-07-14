@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to Dosaa — Order Now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --leaf-dark:#1F3D2B;
+    --leaf-mid:#2A4E36;
+    --leaf-line:#3E6B4B;
+    --dosa-gold:#E8A33D;
+    --dosa-gold-light:#F4C778;
+    --turmeric:#D98E04;
+    --batter:#FAF3E4;
+    --batter-dim:#EFE4CC;
+    --chutney:#7CA65C;
+    --coffee:#3A2418;
+    --steel:#D7DBDD;
+    --steel-dark:#9AA1A6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--batter);
+    color:var(--coffee);
+    font-family:'Inter',sans-serif;
+    padding-bottom:90px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    margin:0;
+  }
+  a{color:inherit;}
+
+  /* ---- Header ---- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--leaf-dark);
+    color:var(--batter);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;
+    border-bottom:3px solid var(--dosa-gold);
+  }
+  .logo{
+    font-size:22px;
+    letter-spacing:0.3px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo svg{flex-shrink:0;}
+  .header-call{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    background:var(--dosa-gold);
+    color:var(--coffee);
+    padding:8px 14px;
+    border-radius:99px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 15%, rgba(232,163,61,0.25), transparent 45%),
+      var(--leaf-dark);
+    color:var(--batter);
+    padding:48px 20px 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-eyebrow{
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--chutney);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:clamp(34px,9vw,52px);
+    line-height:1.05;
+    color:var(--batter);
+  }
+  .hero h1 span{color:var(--dosa-gold);}
+  .hero p{
+    margin-top:14px;
+    font-size:16px;
+    color:var(--steel);
+    max-width:38ch;
+    line-height:1.5;
+  }
+  .hero-address{
+    margin-top:22px;
+    display:inline-flex;
+    align-items:flex-start;
+    gap:8px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--leaf-line);
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:13.5px;
+    color:var(--batter-dim);
+    max-width:34ch;
+  }
+  .hero-cta{
+    display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--dosa-gold);
+    color:var(--coffee);
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    font-size:16px;
+    padding:13px 26px;
+    border-radius:99px;
+    border:none;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+  }
+  .btn-ghost{
+    background:transparent;
+    border:1.5px solid var(--leaf-line);
+    color:var(--batter);
+    font-weight:600;
+    font-size:14px;
+    padding:12px 20px;
+    border-radius:99px;
+    text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .steam{
+    position:absolute;
+    right:-10px;bottom:-10px;
+    opacity:0.35;
+  }
+
+  /* ---- Section shell ---- */
+  section{padding:44px 20px;max-width:640px;margin:0 auto;}
+  .section-head{margin-bottom:24px;}
+  .section-eyebrow{
+    font-size:11.5px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--chutney);font-weight:700;
+  }
+  .section-head h2{font-size:28px;margin-top:6px;color:var(--leaf-dark);}
+
+  /* ---- Menu ---- */
+  .plate{
+    background:var(--batter);
+    border:2px solid var(--steel);
+    border-radius:20px;
+    padding:18px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:16px;
+    position:relative;
+  }
+  .plate::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px dashed var(--steel-dark);
+    border-radius:14px;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  .plate-icon{
+    width:64px;height:64px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--leaf-dark);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .plate-info{flex:1;min-width:0;}
+  .plate-info h3{font-size:19px;color:var(--coffee);}
+  .plate-info .price{
+    font-family:'Baloo 2',cursive;
+    color:var(--turmeric);
+    font-weight:700;
+    font-size:16px;
+    margin-top:2px;
+  }
+  .stepper{
+    display:flex;align-items:center;gap:10px;
+    background:var(--leaf-dark);
+    border-radius:99px;
+    padding:6px 8px;
+  }
+  .stepper button{
+    width:28px;height:28px;
+    border-radius:50%;
+    border:none;
+    background:var(--dosa-gold);
+    color:var(--coffee);
+    font-size:16px;font-weight:700;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    line-height:1;
+  }
+  .stepper span{
+    color:var(--batter);
+    font-weight:700;
+    min-width:16px;
+    text-align:center;
+    font-size:14px;
+  }
+
+  /* ---- Location ---- */
+  .loc-card{
+    background:var(--leaf-dark);
+    color:var(--batter);
+    border-radius:20px;
+    padding:22px;
+  }
+  .loc-card p{font-size:14px;line-height:1.6;color:var(--steel);margin:4px 0 0;}
+  .loc-card .addr-line{color:var(--batter);font-weight:600;font-size:15.5px;}
+  .map-frame{
+    margin-top:16px;
+    border-radius:14px;
+    overflow:hidden;
+    border:2px solid var(--leaf-line);
+  }
+  .map-frame iframe{display:block;width:100%;height:220px;border:0;}
+  .directions-link{
+    margin-top:14px;
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--dosa-gold);
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+  }
+
+  /* ---- Order bar ---- */
+  .order-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:var(--leaf-dark);
+    border-top:3px solid var(--dosa-gold);
+    padding:12px 18px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;
+    transform:translateY(110%);
+    transition:transform 0.25s ease;
+  }
+  .order-bar.show{transform:translateY(0);}
+  .order-bar .total{color:var(--batter);}
+  .order-bar .total b{
+    font-family:'Baloo 2',cursive;
+    color:var(--dosa-gold);
+    font-size:19px;
+    display:block;
+  }
+  .order-bar .total span{font-size:11.5px;color:var(--steel);}
+  .order-bar .wa-btn{
+    background:#2FA84F;
+    color:#fff;
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    font-size:15px;
+    border:none;
+    padding:12px 20px;
+    border-radius:99px;
+    display:flex;align-items:center;gap:8px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  footer{
+    text-align:center;
+    padding:26px 20px 20px;
+    font-size:12px;
+    color:var(--steel-dark);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <path d="M2 15C2 15 6 9 13 9C20 9 24 15 24 15C24 15 20 19 13 19C6 19 2 15 2 15Z" fill="#E8A33D"/>
+      <path d="M2 15C2 15 6 9 13 9" stroke="#3A2418" stroke-width="0.5"/>
+    </svg>
+    Talk to Dosaa
+  </div>
+  <a class="header-call" href="tel:+918957044681">Call to order</a>
+</header>
+
+<section class="hero" style="padding-top:48px;">
+  <div class="hero-eyebrow">Gwalior's dosa corner</div>
+  <h1>Crisp dosa,<br>hot <span>pav bhaji</span>,<br>on the way.</h1>
+  <p>Made fresh on the tawa, packed hot, sent straight to you. Order below and we'll confirm on WhatsApp.</p>
+  <div class="hero-address">
+    <span>📍</span>
+    <span>Guda Gudi Ka Naka, Gwalior, Madhya Pradesh — 474001</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#menu" class="btn-primary">See the menu ↓</a>
+    <a href="https://wa.me/918957044681" target="_blank" class="btn-ghost">💬 WhatsApp us</a>
+  </div>
+  <svg class="steam" width="140" height="140" viewBox="0 0 140 140" fill="none">
+    <path d="M20 130C20 130 40 100 20 80C0 60 20 30 20 30" stroke="#E8A33D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M60 130C60 130 80 100 60 80C40 60 60 30 60 30" stroke="#7CA65C" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+</section>
+
+<section id="menu">
+  <div class="section-head">
+    <div class="section-eyebrow">Today's tawa</div>
+    <h2>The Menu</h2>
+  </div>
+
+  <div class="plate">
+    <div class="plate-icon">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <ellipse cx="17" cy="19" rx="14" ry="8" fill="#F4C778"/>
+        <path d="M4 19C4 19 8 11 17 11C26 11 30 19 30 19" stroke="#D98E04" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="plate-info">
+      <h3>Dosa</h3>
+      <div class="price">₹60</div>
+    </div>
+    <div class="stepper" data-item="Dosa" data-price="60">
+      <button class="minus">−</button>
+      <span class="qty">0</span>
+      <button class="plus">+</button>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="plate-icon">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <circle cx="17" cy="17" r="10" fill="#E8A33D"/>
+        <circle cx="17" cy="17" r="5" fill="#7CA65C"/>
+      </svg>
+    </div>
+    <div class="plate-info">
+      <h3>Pav Bhaji</h3>
+      <div class="price">₹40</div>
+    </div>
+    <div class="stepper" data-item="Pav Bhaji" data-price="40">
+      <button class="minus">−</button>
+      <span class="qty">0</span>
+      <button class="plus">+</button>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="section-head">
+    <div class="section-eyebrow">Find us</div>
+    <h2>Location</h2>
+  </div>
+  <div class="loc-card">
+    <div class="addr-line">Talk to Dosaa</div>
+    <p>Guda Gudi Ka Naka, Gwalior, Madhya Pradesh, India — 474001</p>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=Guda+Gudi+Ka+Naka,+Gwalior,+Madhya+Pradesh+474001&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=Guda+Gudi+Ka+Naka,+Gwalior,+Madhya+Pradesh+474001" target="_blank">Get directions →</a>
+  </div>
+</section>
+
+<footer>
+  Talk to Dosaa · Gwalior 474001 · <a href="tel:+918957044681">89570 44681</a>
+</footer>
+
+<div class="order-bar" id="orderBar">
+  <div class="total">
+    <span id="itemCount">0 items</span>
+    <b id="totalAmt">₹0</b>
+  </div>
+  <a class="wa-btn" id="waBtn" href="#" target="_blank">📲 Order on WhatsApp</a>
+</div>
+
+<script>
+  const steppers = document.querySelectorAll('.stepper');
+  const orderBar = document.getElementById('orderBar');
+  const totalAmt = document.getElementById('totalAmt');
+  const itemCount = document.getElementById('itemCount');
+  const waBtn = document.getElementById('waBtn');
+  const WA_NUMBER = "918957044681";
+
+  let order = {};
+
+  steppers.forEach(st => {
+    const name = st.dataset.item;
+    const price = parseInt(st.dataset.price, 10);
+    const qtyEl = st.querySelector('.qty');
+    order[name] = 0;
+
+    st.querySelector('.plus').addEventListener('click', () => {
+      order[name]++;
+      qtyEl.textContent = order[name];
+      update();
+    });
+    st.querySelector('.minus').addEventListener('click', () => {
+      if(order[name] > 0){
+        order[name]--;
+        qtyEl.textContent = order[name];
+        update();
+      }
+    });
+  });
+
+  function update(){
+    let total = 0;
+    let count = 0;
+    let lines = [];
+    steppers.forEach(st => {
+      const name = st.dataset.item;
+      const price = parseInt(st.dataset.price, 10);
+      const qty = order[name];
+      if(qty > 0){
+        total += price * qty;
+        count += qty;
+        lines.push(`${name} x${qty} - ₹${price*qty}`);
+      }
+    });
+
+    if(count > 0){
+      orderBar.classList.add('show');
+      totalAmt.textContent = `₹${total}`;
+      itemCount.textContent = `${count} item${count>1?'s':''}`;
+      const msg = `Hi Talk to Dosaa! I'd like to order:\n${lines.join('\n')}\n\nTotal: ₹${total}\n\nDelivery address:`;
+      waBtn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    } else {
+      orderBar.classList.remove('show');
+    }
+  }
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to Dosaa — Order Now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --leaf-dark:#1F3D2B;
+    --leaf-mid:#2A4E36;
+    --leaf-line:#3E6B4B;
+    --dosa-gold:#E8A33D;
+    --dosa-gold-light:#F4C778;
+    --turmeric:#D98E04;
+    --batter:#FAF3E4;
+    --batter-dim:#EFE4CC;
+    --chutney:#7CA65C;
+    --coffee:#3A2418;
+    --steel:#D7DBDD;
+    --steel-dark:#9AA1A6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--batter);
+    color:var(--coffee);
+    font-family:'Inter',sans-serif;
+    padding-bottom:90px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    margin:0;
+  }
+  a{color:inherit;}
+
+  /* ---- Header ---- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--leaf-dark);
+    color:var(--batter);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;
+    border-bottom:3px solid var(--dosa-gold);
+  }
+  .logo{
+    font-size:22px;
+    letter-spacing:0.3px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo svg{flex-shrink:0;}
+  .header-call{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    background:var(--dosa-gold);
+    color:var(--coffee);
+    padding:8px 14px;
+    border-radius:99px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 15%, rgba(232,163,61,0.25), transparent 45%),
+      var(--leaf-dark);
+    color:var(--batter);
+    padding:48px 20px 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-eyebrow{
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--chutney);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:clamp(34px,9vw,52px);
+    line-height:1.05;
+    color:var(--batter);
+  }
+  .hero h1 span{color:var(--dosa-gold);}
+  .hero p{
+    margin-top:14px;
+    font-size:16px;
+    color:var(--steel);
+    max-width:38ch;
+    line-height:1.5;
+  }
+  .hero-address{
+    margin-top:22px;
+    display:inline-flex;
+    align-items:flex-start;
+    gap:8px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--leaf-line);
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:13.5px;
+    color:var(--batter-dim);
+    max-width:34ch;
+  }
+  .hero-cta{
+    display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--dosa-gold);
+    color:var(--coffee);
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    font-size:16px;
+    padding:13px 26px;
+    border-radius:99px;
+    border:none;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+  }
+  .btn-ghost{
+    background:transparent;
+    border:1.5px solid var(--leaf-line);
+    color:var(--batter);
+    font-weight:600;
+    font-size:14px;
+    padding:12px 20px;
+    border-radius:99px;
+    text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .steam{
+    position:absolute;
+    right:-10px;bottom:-10px;
+    opacity:0.35;
+  }
+
+  /* ---- Section shell ---- */
+  section{padding:44px 20px;max-width:640px;margin:0 auto;}
+  .section-head{margin-bottom:24px;}
+  .section-eyebrow{
+    font-size:11.5px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--chutney);font-weight:700;
+  }
+  .section-head h2{font-size:28px;margin-top:6px;color:var(--leaf-dark);}
+
+  /* ---- Menu ---- */
+  .plate{
+    background:var(--batter);
+    border:2px solid var(--steel);
+    border-radius:20px;
+    padding:18px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:16px;
+    position:relative;
+  }
+  .plate::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px dashed var(--steel-dark);
+    border-radius:14px;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  .plate-icon{
+    width:64px;height:64px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--leaf-dark);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .plate-info{flex:1;min-width:0;}
+  .plate-info h3{font-size:19px;color:var(--coffee);}
+  .plate-info .price{
+    font-family:'Baloo 2',cursive;
+    color:var(--turmeric);
+    font-weight:700;
+    font-size:16px;
+    margin-top:2px;
+  }
+  .stepper{
+    display:flex;align-items:center;gap:10px;
+    background:var(--leaf-dark);
+    border-radius:99px;
+    padding:6px 8px;
+  }
+  .stepper button{
+    width:28px;height:28px;
+    border-radius:50%;
+    border:none;
+    background:var(--dosa-gold);
+    color:var(--coffee);
+    font-size:16px;font-weight:700;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    line-height:1;
+  }
+  .stepper span{
+    color:var(--batter);
+    font-weight:700;
+    min-width:16px;
+    text-align:center;
+    font-size:14px;
+  }
+
+  /* ---- Location ---- */
+  .loc-card{
+    background:var(--leaf-dark);
+    color:var(--batter);
+    border-radius:20px;
+    padding:22px;
+  }
+  .loc-card p{font-size:14px;line-height:1.6;color:var(--steel);margin:4px 0 0;}
+  .loc-card .addr-line{color:var(--batter);font-weight:600;font-size:15.5px;}
+  .map-frame{
+    margin-top:16px;
+    border-radius:14px;
+    overflow:hidden;
+    border:2px solid var(--leaf-line);
+  }
+  .map-frame iframe{display:block;width:100%;height:220px;border:0;}
+  .directions-link{
+    margin-top:14px;
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--dosa-gold);
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+  }
+
+  /* ---- Order bar ---- */
+  .order-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:var(--leaf-dark);
+    border-top:3px solid var(--dosa-gold);
+    padding:12px 18px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;
+    transform:translateY(110%);
+    transition:transform 0.25s ease;
+  }
+  .order-bar.show{transform:translateY(0);}
+  .order-bar .total{color:var(--batter);}
+  .order-bar .total b{
+    font-family:'Baloo 2',cursive;
+    color:var(--dosa-gold);
+    font-size:19px;
+    display:block;
+  }
+  .order-bar .total span{font-size:11.5px;color:var(--steel);}
+  .order-bar .wa-btn{
+    background:#2FA84F;
+    color:#fff;
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    font-size:15px;
+    border:none;
+    padding:12px 20px;
+    border-radius:99px;
+    display:flex;align-items:center;gap:8px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  footer{
+    text-align:center;
+    padding:26px 20px 20px;
+    font-size:12px;
+    color:var(--steel-dark);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <path d="M2 15C2 15 6 9 13 9C20 9 24 15 24 15C24 15 20 19 13 19C6 19 2 15 2 15Z" fill="#E8A33D"/>
+      <path d="M2 15C2 15 6 9 13 9" stroke="#3A2418" stroke-width="0.5"/>
+    </svg>
+    Talk to Dosaa
+  </div>
+  <a class="header-call" href="tel:+918957044681">Call to order</a>
+</header>
+
+<section class="hero" style="padding-top:48px;">
+  <div class="hero-eyebrow">Gwalior's dosa corner</div>
+  <h1>Crisp dosa,<br>hot <span>pav bhaji</span>,<br>on the way.</h1>
+  <p>Made fresh on the tawa, packed hot, sent straight to you. Order below and we'll confirm on WhatsApp.</p>
+  <div class="hero-address">
+    <span>📍</span>
+    <span>Guda Gudi Ka Naka, Gwalior, Madhya Pradesh — 474001</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#menu" class="btn-primary">See the menu ↓</a>
+    <a href="https://wa.me/918957044681" target="_blank" class="btn-ghost">💬 WhatsApp us</a>
+  </div>
+  <svg class="steam" width="140" height="140" viewBox="0 0 140 140" fill="none">
+    <path d="M20 130C20 130 40 100 20 80C0 60 20 30 20 30" stroke="#E8A33D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M60 130C60 130 80 100 60 80C40 60 60 30 60 30" stroke="#7CA65C" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+</section>
+
+<section id="menu">
+  <div class="section-head">
+    <div class="section-eyebrow">Today's tawa</div>
+    <h2>The Menu</h2>
+  </div>
+
+  <div class="plate">
+    <div class="plate-icon">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <ellipse cx="17" cy="19" rx="14" ry="8" fill="#F4C778"/>
+        <path d="M4 19C4 19 8 11 17 11C26 11 30 19 30 19" stroke="#D98E04" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="plate-info">
+      <h3>Dosa</h3>
+      <div class="price">₹60</div>
+    </div>
+    <div class="stepper" data-item="Dosa" data-price="60">
+      <button class="minus">−</button>
+      <span class="qty">0</span>
+      <button class="plus">+</button>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="plate-icon">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <circle cx="17" cy="17" r="10" fill="#E8A33D"/>
+        <circle cx="17" cy="17" r="5" fill="#7CA65C"/>
+      </svg>
+    </div>
+    <div class="plate-info">
+      <h3>Pav Bhaji</h3>
+      <div class="price">₹40</div>
+    </div>
+    <div class="stepper" data-item="Pav Bhaji" data-price="40">
+      <button class="minus">−</button>
+      <span class="qty">0</span>
+      <button class="plus">+</button>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="section-head">
+    <div class="section-eyebrow">Find us</div>
+    <h2>Location</h2>
+  </div>
+  <div class="loc-card">
+    <div class="addr-line">Talk to Dosaa</div>
+    <p>Guda Gudi Ka Naka, Gwalior, Madhya Pradesh, India — 474001</p>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=Guda+Gudi+Ka+Naka,+Gwalior,+Madhya+Pradesh+474001&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=Guda+Gudi+Ka+Naka,+Gwalior,+Madhya+Pradesh+474001" target="_blank">Get directions →</a>
+  </div>
+</section>
+
+<footer>
+  Talk to Dosaa · Gwalior 474001 · <a href="tel:+918957044681">89570 44681</a>
+</footer>
+
+<div class="order-bar" id="orderBar">
+  <div class="total">
+    <span id="itemCount">0 items</span>
+    <b id="totalAmt">₹0</b>
+  </div>
+  <a class="wa-btn" id="waBtn" href="#" target="_blank">📲 Order on WhatsApp</a>
+</div>
+
+<script>
+  const steppers = document.querySelectorAll('.stepper');
+  const orderBar = document.getElementById('orderBar');
+  const totalAmt = document.getElementById('totalAmt');
+  const itemCount = document.getElementById('itemCount');
+  const waBtn = document.getElementById('waBtn');
+  const WA_NUMBER = "918957044681";
+
+  let order = {};
+
+  steppers.forEach(st => {
+    const name = st.dataset.item;
+    const price = parseInt(st.dataset.price, 10);
+    const qtyEl = st.querySelector('.qty');
+    order[name] = 0;
+
+    st.querySelector('.plus').addEventListener('click', () => {
+      order[name]++;
+      qtyEl.textContent = order[name];
+      update();
+    });
+    st.querySelector('.minus').addEventListener('click', () => {
+      if(order[name] > 0){
+        order[name]--;
+        qtyEl.textContent = order[name];
+        update();
+      }
+    });
+  });
+
+  function update(){
+    let total = 0;
+    let count = 0;
+    let lines = [];
+    steppers.forEach(st => {
+      const name = st.dataset.item;
+      const price = parseInt(st.dataset.price, 10);
+      const qty = order[name];
+      if(qty > 0){
+        total += price * qty;
+        count += qty;
+        lines.push(`${name} x${qty} - ₹${price*qty}`);
+      }
+    });
+
+    if(count > 0){
+      orderBar.classList.add('show');
+      totalAmt.textContent = `₹${total}`;
+      itemCount.textContent = `${count} item${count>1?'s':''}`;
+      const msg = `Hi Talk to Dosaa! I'd like to order:\n${lines.join('\n')}\n\nTotal: ₹${total}\n\nDelivery address:`;
+      waBtn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    } else {
+      orderBar.classList.remove('show');
+    }
+  }
+</script>
+
+</body>
+</html>
+
